@@ -39,7 +39,6 @@ if least_common_multiple == 0:
 else:
     print("最小公倍数是 %d" % least_common_multiple)
 
-
 """
 练习3：输入两个正整数计算它们的最大公约数和最小公倍数
 
@@ -61,22 +60,28 @@ for factor in range(x, 0, -1):
 打印三角形图案
 """
 row = int(input("请输入行数"))
+for i in range(row + 1):
+    for _ in range(i):
+        print("*", end='')
+    print()
+# for i in range(row + 1):
+#     for _ in range(row - i):
+#         print(" ", end='')
+#     for _ in range(i):
+#         print("*", end='')
+#     print()
 for i in range(row):
-    for _ in range(i + 1):
-        print('*', end='')
+    for j in range(row):
+        if j < row - i - 1:
+            print(" ", end='')
+        else:
+            print("*", end='')
     print()
 
 for i in range(row):
     for j in range(row):
         if j < row - i - 1:
-            print(' ', end='')
-        else:
-            print('*', end='')
-    print()
-
-for i in range(row):
-    for _ in range(row - i - 1):
-        print(' ', end='')
-    for _ in range(2 * i + 1):
-        print('*', end='')
+            print(" ", end='')
+    for j in range(i * 2 + 1):
+        print("*", end='')
     print()
