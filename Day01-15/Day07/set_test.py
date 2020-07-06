@@ -53,4 +53,3 @@ print(set3.issubset(set1))
 print(set1 >= set2)
 print(set1.issuperset(set2))
 print(set1.issuperset(set3))
-字典
