@@ -1,4 +1,4 @@
-from time import sleep
+from time import sleep, time, localtime
 import os
 
 """
@@ -20,6 +20,13 @@ class Clock(object):
         self._minute = minute
         self._second = second
 
+    # 对象方法：类方法的第一个参数约定名为cls，
+    # 它代表的是当前类相关的信息的对象（类本身也是一个对象，有的地方也称之为类的元数据对象），通过这个参数我们可以获取和类相关的信息并且可以创建出类的对象
+    @classmethod
+    def now(cls):
+        ctime = localtime(time())
+        return cls(ctime.tm_hour,  ctime.tm_min, ctime.tm_sec)
+
     def run(self):
         """走字"""
         self._second += 1
@@ -38,7 +45,7 @@ class Clock(object):
 
 
 def main():
-    clock = Clock(23, 59, 58)
+    clock = Clock.now()
     while True:
         os.system('cls')
         print(clock.show())
