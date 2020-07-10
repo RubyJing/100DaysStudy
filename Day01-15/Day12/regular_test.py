@@ -51,7 +51,32 @@ def phone_reg():
         print(m.group())
         m = pattern.search(sentence, m.end())
 
+"""
+例子3：替换字符串中的不良内容
+"""
+
+
+def sensitive_words():
+    sentence = "你丫是傻叉吗? 我操你大爷的. Fuck you."
+    purified = re.sub('[操肏艹]|fuck|shit|傻[比屄逼叉缺吊屌]|煞笔|大爷', '*', sentence, flags=re.IGNORECASE)
+    print(purified)
+
+
+"""
+拆分长字符串
+"""
+
+
+def split_long_strings():
+    poetry = '窗前明月光，疑是地上霜。举头望明月，低头思故乡。'
+    sentence_list = re.split(r'[，。]', poetry)
+    while '' in sentence_list:
+        sentence_list.remove('')
+    print(sentence_list)
+
 
 if __name__ == '__main__':
     # account_reg()
-    phone_reg()
+    # phone_reg()
+    # sensitive_words()
+    split_long_strings()
