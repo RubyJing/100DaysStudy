@@ -51,6 +51,7 @@ def phone_reg():
         print(m.group())
         m = pattern.search(sentence, m.end())
 
+
 """
 例子3：替换字符串中的不良内容
 """
